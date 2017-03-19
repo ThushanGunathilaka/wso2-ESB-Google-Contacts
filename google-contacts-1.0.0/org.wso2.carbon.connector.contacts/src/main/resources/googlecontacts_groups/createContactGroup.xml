@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="createContactGroup" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="title" description="The title" />
+		<parameter name="additionalInfo" description="The additionalInfo" />
+		<sequence>
+				<property expression="$func:title" name="uri.var.title" />
+				<property expression="$func:additionalInfo" name="uri.var.additionalInfo" />
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

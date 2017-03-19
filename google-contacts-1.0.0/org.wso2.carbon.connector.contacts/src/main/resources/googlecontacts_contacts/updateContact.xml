@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="updateContact" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="contactId" description="The contactId" />
+		<parameter name="updated" description="The updated" />
+		<parameter name="name" description="The name" />
+		<parameter name="email" description="The email" />
+		<parameter name="phoneNumber" description="The phoneNumber" />
+		<parameter name="im" description="The im" />
+		<parameter name="structuredPostalAddress" description="The structuredPostalAddress" />
+		<parameter name="birthday" description="The birthday" />
+		<parameter name="url" description="The url" />
+		<sequence>
+				<property expression="$func:contactId" name="uri.var.contactId" />
+				<property expression="$func:updated" name="uri.var.updated" />
+				<property expression="$func:name" name="uri.var.name" />
+				<property expression="$func:email" name="uri.var.email" />
+				<property expression="$func:phoneNumber" name="uri.var.phoneNumber" />
+				<property expression="$func:im" name="uri.var.im" />
+				<property expression="$func:structuredPostalAddress" name="uri.var.structuredPostalAddress" />
+				<property expression="$func:birthday" name="uri.var.birthday" />
+				<property expression="$func:url" name="uri.var.url" />
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

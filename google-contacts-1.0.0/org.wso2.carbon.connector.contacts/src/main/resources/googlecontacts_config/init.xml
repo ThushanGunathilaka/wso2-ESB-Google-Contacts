@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="init" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="accessToken" description="Access Token" />
+		<sequence>
+			<header name="Content-Type" value="fn:concat('Bearer ', $func:accessToken )" scope="transport" />
+	</sequence>
+</template>

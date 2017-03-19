@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="retrieveAllContacts" xmlns="http://ws.apache.org/ns/synapse">
+	<sequence>
+		<property name="Accept-Encoding" action="remove" scope="transport"/>
+		<property name="messageType" value="application/json" scope="axis2"/>
+		<call>
+			<endpoint>
+				<http method="get" uri-template="https://www.google.com/m8/feeds/contacts/default/full/?alt=json" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

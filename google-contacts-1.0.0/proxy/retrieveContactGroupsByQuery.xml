@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="contacts_retrieveContactGroupsByQuery" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+	<target>
+		<inSequence>
+								<property name="query" expression="json-eval($.query)" />
+											<property name="maxResult" expression="json-eval($.maxResult)" />
+											<property name="startIndex" expression="json-eval($.startIndex)" />
+											<property name="updatedMin" expression="json-eval($.updatedMin)" />
+											<property name="orderBy" expression="json-eval($.orderBy)" />
+											<property name="showDeleted" expression="json-eval($.showDeleted)" />
+											<property name="requireAllDeleted" expression="json-eval($.requireAllDeleted)" />
+											<property name="sortOrder" expression="json-eval($.sortOrder)" />
+								<contacts.retrieveContactGroupsByQuery>
+							<query>{$ctx:query}</query>
+							<maxResult>{$ctx:maxResult}</maxResult>
+							<startIndex>{$ctx:startIndex}</startIndex>
+							<updatedMin>{$ctx:updatedMin}</updatedMin>
+							<orderBy>{$ctx:orderBy}</orderBy>
+							<showDeleted>{$ctx:showDeleted}</showDeleted>
+							<requireAllDeleted>{$ctx:requireAllDeleted}</requireAllDeleted>
+							<sortOrder>{$ctx:sortOrder}</sortOrder>
+						</contacts.retrieveContactGroupsByQuery>
+			<respond />
+		</inSequence>
+		<outSequence>
+			<log />
+			<send />
+		</outSequence>
+	</target>
+	<description />
+</proxy>  

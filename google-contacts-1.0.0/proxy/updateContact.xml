@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="contacts_updateContact" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+	<target>
+		<inSequence>
+								<property name="contactId" expression="json-eval($.contactId)" />
+											<property name="updated" expression="json-eval($.updated)" />
+											<property name="name" expression="json-eval($.name)" />
+											<property name="email" expression="json-eval($.email)" />
+											<property name="phoneNumber" expression="json-eval($.phoneNumber)" />
+											<property name="im" expression="json-eval($.im)" />
+											<property name="structuredPostalAddress" expression="json-eval($.structuredPostalAddress)" />
+											<property name="birthday" expression="json-eval($.birthday)" />
+											<property name="url" expression="json-eval($.url)" />
+								<contacts.updateContact>
+							<contactId>{$ctx:contactId}</contactId>
+							<updated>{$ctx:updated}</updated>
+							<name>{$ctx:name}</name>
+							<email>{$ctx:email}</email>
+							<phoneNumber>{$ctx:phoneNumber}</phoneNumber>
+							<im>{$ctx:im}</im>
+							<structuredPostalAddress>{$ctx:structuredPostalAddress}</structuredPostalAddress>
+							<birthday>{$ctx:birthday}</birthday>
+							<url>{$ctx:url}</url>
+						</contacts.updateContact>
+			<respond />
+		</inSequence>
+		<outSequence>
+			<log />
+			<send />
+		</outSequence>
+	</target>
+	<description />
+</proxy>  

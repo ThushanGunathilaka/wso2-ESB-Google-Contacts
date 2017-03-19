@@ -1,0 +1,19 @@
+googlecontacts_config,init,userEmail:username:password,Configuration file.
+googlecontacts_contacts,retrieveAllContacts,,Retrieve all user contacts.
+googlecontacts_contacts,retrieveContactsByQuery,feedType:query:maxResult:startIndex:updatedMin:orderBy:showDeleted:requireAllDeleted:sortOrder:group,Retrieve contacts using query parameters.
+googlecontacts_contacts,retrieveSingleContact,contactId,Retrieve single contact.
+googlecontacts_contacts,createContact,name:email:phoneNumber:im:structuredPostalAddress:birthday:url,Create a new contact.
+googlecontacts_contacts,updateContact,contactId:updated:name:email:phoneNumber:im:structuredPostalAddress:birthday:url,Update a contact.
+googlecontacts_contacts,deleteContact,contactId,Delete a contact.
+googlecontacts_contacts,changeGroupMembership,contactId:updated:groupMembershipInfo,Change contact group membership.
+googlecontacts_photoManagement,retrieveContactPhoto,contactId,Retrieve contact photo.
+googlecontacts_photoManagement,updateContactPhoto,contactId:imageFile,Add or update photo for a contact.
+googlecontacts_photoManagement,deleteContactPhoto,contactId,Delete contact photo.
+googlecontacts_groups,retrieveAllContactGroups,,Retrieve the user contact groups.
+googlecontacts_groups,retrieveContactGroupsByQuery,query:maxResult:startIndex:updatedMin:orderBy:showDeleted:requireAllDeleted:sortOrder,Retrieve contact groups using query parameters.
+googlecontacts_groups,retrieveSingleContactGroup,groupId,Retrieve single group.
+googlecontacts_groups,createContactGroup,title:additionalInfo,Create a new contact group.
+googlecontacts_groups,updateContactGroup,groupID:title:content:additionalInfo,Update contact group.
+googlecontacts_groups,deleteContactGroup,groupID,Delete contact group.
+googlecontacts_batchOperations,batchCreateContacts,entryList,Batch request for operations on contacts.
+googlecontacts_batchOperations,batchCreateContactGroups,entryList,Batch request for operations on contact groups.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="init" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+	<target>
+		<inSequence>
+
+											         <property name="appName" expression="json-eval($.appName)"/>
+         <property name="accessToken" expression="json-eval($.accessToken)"/>
+         <property name="userEmail" expression="json-eval($.userEmail)"/>
+         <property name="authUrl" expression="json-eval($.authUrl)"/>
+								<contacts.init>
+            <apiUrl>{$ctx:appName}</apiUrl>
+			<accessToken>{$ctx:accessToken}</accessToken>
+            <username>{$ctx:userEmail}</username>
+			<accessToken>{$ctx:authUrl}</accessToken>
+						</contacts.init>
+			<respond />
+		</inSequence>
+		<outSequence>
+			<log />
+			<send />
+		</outSequence>
+	</target>
+	<description />
+</proxy>  

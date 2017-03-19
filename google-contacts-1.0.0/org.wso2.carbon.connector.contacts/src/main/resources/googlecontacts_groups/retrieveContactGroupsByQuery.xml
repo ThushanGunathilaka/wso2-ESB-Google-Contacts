@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="retrieveContactGroupsByQuery" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="query" description="The query" />
+		<parameter name="maxResult" description="The maxResult" />
+		<parameter name="startIndex" description="The startIndex" />
+		<parameter name="updatedMin" description="The updatedMin" />
+		<parameter name="orderBy" description="The orderBy" />
+		<parameter name="showDeleted" description="The showDeleted" />
+		<parameter name="requireAllDeleted" description="The requireAllDeleted" />
+		<parameter name="sortOrder" description="The sortOrder" />
+		<sequence>
+				<property expression="$func:query" name="uri.var.query" />
+				<property expression="$func:maxResult" name="uri.var.maxResult" />
+				<property expression="$func:startIndex" name="uri.var.startIndex" />
+				<property expression="$func:updatedMin" name="uri.var.updatedMin" />
+				<property expression="$func:orderBy" name="uri.var.orderBy" />
+				<property expression="$func:showDeleted" name="uri.var.showDeleted" />
+				<property expression="$func:requireAllDeleted" name="uri.var.requireAllDeleted" />
+				<property expression="$func:sortOrder" name="uri.var.sortOrder" />
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

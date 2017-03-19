@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="contacts_deleteContactPhoto" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+	<target>
+		<inSequence>
+								<property name="contactId" expression="json-eval($.contactId)" />
+								<contacts.deleteContactPhoto>
+							<contactId>{$ctx:contactId}</contactId>
+						</contacts.deleteContactPhoto>
+			<respond />
+		</inSequence>
+		<outSequence>
+			<log />
+			<send />
+		</outSequence>
+	</target>
+	<description />
+</proxy>  

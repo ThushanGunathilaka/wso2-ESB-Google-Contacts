@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="contacts_createContactGroup" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+	<target>
+		<inSequence>
+								<property name="title" expression="json-eval($.title)" />
+											<property name="additionalInfo" expression="json-eval($.additionalInfo)" />
+								<contacts.createContactGroup>
+							<title>{$ctx:title}</title>
+							<additionalInfo>{$ctx:additionalInfo}</additionalInfo>
+						</contacts.createContactGroup>
+			<respond />
+		</inSequence>
+		<outSequence>
+			<log />
+			<send />
+		</outSequence>
+	</target>
+	<description />
+</proxy>  

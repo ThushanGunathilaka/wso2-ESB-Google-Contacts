@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="updateContactPhoto" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="contactId" description="The contactId" />
+		<parameter name="imageFile" description="The imageFile" />
+		<sequence>
+				<property expression="$func:contactId" name="uri.var.contactId" />
+				<property expression="$func:imageFile" name="uri.var.imageFile" />
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="contacts_updateContactPhoto" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+	<target>
+		<inSequence>
+								<property name="contactId" expression="json-eval($.contactId)" />
+											<property name="imageFile" expression="json-eval($.imageFile)" />
+								<contacts.updateContactPhoto>
+							<contactId>{$ctx:contactId}</contactId>
+							<imageFile>{$ctx:imageFile}</imageFile>
+						</contacts.updateContactPhoto>
+			<respond />
+		</inSequence>
+		<outSequence>
+			<log />
+			<send />
+		</outSequence>
+	</target>
+	<description />
+</proxy>  

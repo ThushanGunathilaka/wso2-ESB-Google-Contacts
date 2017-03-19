@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="retrieveAllContactGroups" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="" description="The " />
+		<sequence>
+				<property name="Accept-Encoding" action="remove" scope="transport"/>
+		<property name="messageType" value="application/json" scope="axis2"/>
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

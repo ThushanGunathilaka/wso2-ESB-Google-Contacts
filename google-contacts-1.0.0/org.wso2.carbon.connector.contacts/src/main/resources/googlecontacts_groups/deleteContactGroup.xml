@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="deleteContactGroup" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="groupID" description="The groupID" />
+		<sequence>
+				<property expression="$func:groupID" name="uri.var.groupID" />
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

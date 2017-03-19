@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="retrieveSingleContact" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="contactId" description="The contactId" />
+		<sequence>
+				<property expression="$func:contactId" name="uri.var.contactId" />
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

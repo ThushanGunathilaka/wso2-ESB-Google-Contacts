@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="retrieveSingleContactGroup" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="groupId" description="The groupId" />
+		<sequence>
+				<property expression="$func:groupId" name="uri.var.groupId" />
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

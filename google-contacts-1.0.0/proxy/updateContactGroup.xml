@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="contacts_updateContactGroup" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+	<target>
+		<inSequence>
+								<property name="groupID" expression="json-eval($.groupID)" />
+											<property name="title" expression="json-eval($.title)" />
+											<property name="content" expression="json-eval($.content)" />
+											<property name="additionalInfo" expression="json-eval($.additionalInfo)" />
+								<contacts.updateContactGroup>
+							<groupID>{$ctx:groupID}</groupID>
+							<title>{$ctx:title}</title>
+							<content>{$ctx:content}</content>
+							<additionalInfo>{$ctx:additionalInfo}</additionalInfo>
+						</contacts.updateContactGroup>
+			<respond />
+		</inSequence>
+		<outSequence>
+			<log />
+			<send />
+		</outSequence>
+	</target>
+	<description />
+</proxy>  

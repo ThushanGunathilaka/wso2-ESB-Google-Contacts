@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connector>
+    <component name="contacts" package="org.wso2.carbon.connector" >
+        <dependency component="googlecontacts_config"/>
+		<dependency component="googlecontacts_contacts"/>
+		<dependency component="googlecontacts_photoManagement"/>
+		<dependency component="googlecontacts_groups"/>
+		<dependency component="googlecontacts_batchOperations"/>
+        <description>Google Contacts connector library</description>
+    </component>
+</connector>

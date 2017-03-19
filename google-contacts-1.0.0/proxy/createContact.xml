@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="contacts_createContact" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+	<target>
+		<inSequence>
+								<property name="name" expression="json-eval($.name)" />
+											<property name="email" expression="json-eval($.email)" />
+											<property name="phoneNumber" expression="json-eval($.phoneNumber)" />
+											<property name="im" expression="json-eval($.im)" />
+											<property name="structuredPostalAddress" expression="json-eval($.structuredPostalAddress)" />
+											<property name="birthday" expression="json-eval($.birthday)" />
+											<property name="url" expression="json-eval($.url)" />
+								<contacts.createContact>
+							<name>{$ctx:name}</name>
+							<email>{$ctx:email}</email>
+							<phoneNumber>{$ctx:phoneNumber}</phoneNumber>
+							<im>{$ctx:im}</im>
+							<structuredPostalAddress>{$ctx:structuredPostalAddress}</structuredPostalAddress>
+							<birthday>{$ctx:birthday}</birthday>
+							<url>{$ctx:url}</url>
+						</contacts.createContact>
+			<respond />
+		</inSequence>
+		<outSequence>
+			<log />
+			<send />
+		</outSequence>
+	</target>
+	<description />
+</proxy>  

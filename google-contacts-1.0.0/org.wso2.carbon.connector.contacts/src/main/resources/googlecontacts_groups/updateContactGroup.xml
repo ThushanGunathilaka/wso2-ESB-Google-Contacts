@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="updateContactGroup" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="groupID" description="The groupID" />
+		<parameter name="title" description="The title" />
+		<parameter name="content" description="The content" />
+		<parameter name="additionalInfo" description="The additionalInfo" />
+		<sequence>
+				<property expression="$func:groupID" name="uri.var.groupID" />
+				<property expression="$func:title" name="uri.var.title" />
+				<property expression="$func:content" name="uri.var.content" />
+				<property expression="$func:additionalInfo" name="uri.var.additionalInfo" />
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

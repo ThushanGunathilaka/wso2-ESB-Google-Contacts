@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="batchCreateContactGroups" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="entryList" description="The entryList" />
+		<sequence>
+				<property expression="$func:entryList" name="uri.var.entryList" />
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

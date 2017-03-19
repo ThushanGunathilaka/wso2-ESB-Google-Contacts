@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="changeGroupMembership" xmlns="http://ws.apache.org/ns/synapse">
+		<parameter name="contactId" description="The contactId" />
+		<parameter name="updated" description="The updated" />
+		<parameter name="groupMembershipInfo" description="The groupMembershipInfo" />
+		<sequence>
+				<property expression="$func:contactId" name="uri.var.contactId" />
+				<property expression="$func:updated" name="uri.var.updated" />
+				<property expression="$func:groupMembershipInfo" name="uri.var.groupMembershipInfo" />
+						<call>
+			<endpoint>
+				<http method="post" uri-template="{uri.var.apiUrl}" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>
